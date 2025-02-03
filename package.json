@@ -1,0 +1,26 @@
+{
+  "name": "book-store-backend",
+  "version": "1.0.0",
+  "description": "🚀 Book Store Web App – A modern, fully responsive online bookstore developed using Angular, Node.js, Express, and MongoDB. Users can browse books, add them to a cart, and complete purchases securely.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YoussefShafik1/Book-Store-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/YoussefShafik1/Book-Store-Backend/issues"
+  },
+  "homepage": "https://github.com/YoussefShafik1/Book-Store-Backend#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.6"
+  }
+}
