@@ -16,6 +16,8 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode).json({ msg: "error", err: err.message });
 });
 
+
+
 app.get("/", (req, res) => {
   res.json({ msg: "Hello World!" });
 });
