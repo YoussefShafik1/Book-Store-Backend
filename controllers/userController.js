@@ -16,9 +16,13 @@ export const registerUser = async (req, res) => {
     const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
-    const token = jwt.sign({ userId: newUser._id }, "your_jwt_secret", {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { userId: newUser._id },
+      "9df9f216f6741c01c4d79ea85b19473d8e8023a089c45f0b28bac8114acf0730",
+      {
+        expiresIn: "1h",
+      }
+    );
 
     res.status(201).json({ message: "User registered successfully", token });
   } catch (err) {
@@ -40,7 +44,7 @@ export const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ userId: user._id }, "your_jwt_secret", {
+    const token = jwt.sign({ userId: user._id }, "9df9f216f6741c01c4d79ea85b19473d8e8023a089c45f0b28bac8114acf0730", {
       expiresIn: "1h",
     });
 
