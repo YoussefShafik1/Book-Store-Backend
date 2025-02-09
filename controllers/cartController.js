@@ -9,7 +9,8 @@ export const getCart = async (req, res) => {
     );
     res.status(200).json(cart);
   } catch (err) {
-    res.status(500).json({ message: "Server error" });
+    console.error("Error in Cart API:", err);
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 };
 
