@@ -10,6 +10,14 @@ export const getBooks = (req, res) => {
     });
 };
 
+  export const getBook_id = (req, res) => {
+    const id = req.params.id;
+    Book.findById(id)
+    .then((result) =>{res.send(result)})
+    .catch((err) => {console.log(err)
+    })
+  };
+
 export const createBook = (req, res) => {
   const book = new Book(req.body);
   book

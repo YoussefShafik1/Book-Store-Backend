@@ -18,7 +18,7 @@ const bookSchema = new Schema({
     type: Number,
     required: true,
   }, 
-  populate:{
+  publisher:{
     type: String,
     required: true,
   }
