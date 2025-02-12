@@ -1,30 +1,35 @@
-// server.js
 import express from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import mongoose from "mongoose";
+import connectDB from "./Db/dbConnection.js";  // Import connectDB
 
-// Load environment variables from .env file
+// Import Routes
+import userRoutes from "./Routes/user.js";
+import productRoutes from "./Routes/product.js";
+import cartRoutes from "./Routes/cart.js";
+import orderRoutes from "./Routes/order.js";
+
+// Load environment variables
 dotenv.config();
+
+// Connect to the database
+connectDB();  // Call database connection
 
 const app = express();
 
-// Middleware to parse JSON bodies and handle CORS
-app.use(express.json());
-app.use(cors());
+// Middleware
+app.use(express.json()); // Parse JSON requests
+app.use(cors()); // Allow requests from any domain
 
-// Connect to MongoDB
-const MONGO_URI = process.env.MONGO_URI;
-mongoose;
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
-
-// Import routes (note the .js extension)
-import authRoutes from "./routes/auth.js";
-app.use("/api/auth", authRoutes);
+// Route Handling
+app.use("/api/auth", userRoutes);
+app.use("/api", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
